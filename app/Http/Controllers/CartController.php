@@ -36,6 +36,13 @@ class CartController extends Controller
         return view('pages.cash', compact('pageName'));
     }
 
+    public function transfer()
+    {
+        $pageName = "Cart / transfer";
+
+        return view('pages.transfer', compact('pageName'));
+    }
+
 
     public function deleteCart($id_cart)
     {

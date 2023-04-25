@@ -41,7 +41,7 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Menu</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="transaction">
+                    <a class="nav-link active" href="/transaction">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-bag-17 text-dark text-sm opacity-10"></i>
@@ -59,21 +59,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="cart">
+                    <a class="nav-link " href="/cart">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-cart text-dark text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Cart</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="./pages/sign-up.html">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-compass-04 text-dark text-sm opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Search Santri</span>
                     </a>
                 </li>
             </ul>

@@ -4,7 +4,7 @@
         <div class="card-body">
             <form method="post" action="{{ route('add-to-cart') }}">
                 @csrf
-                <h4 class="mb-3">Cash Payment</h4>
+                <h4 class="mb-3">Transfer Payment</h4>
                 <div class="d-flex p-0 mt-4 justify-content-between">
                     <div class="dropdown">
                         <div class="row mb-3">
@@ -35,16 +35,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <h6 class="col-5">Total Cash</h6>
-                            <div class="col">
-                                <span class="selectedSantri">
-                                    <input class="form-control" type="number" value="0" id="example-number-input"
-                                        name="qty" min="0">
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <h6 class="col-5">Grand Total</h6>
+                            <h6 class="col-5">Sisa Saldo</h6>
                             <div class="col">
                                 <span class="selectedSantri">
                                     10000
