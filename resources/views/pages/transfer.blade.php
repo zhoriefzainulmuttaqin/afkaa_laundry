@@ -20,8 +20,8 @@
                             <h6 class="col-5">No Transaction</h6>
                             <div class="col">
                                 <span class="selectedSantri">
-                                    <input class="form-control" type="number" value="0" id="example-number-input"
-                                        name="qty" min="0">
+                                    <input class="form-control" type="number" value="{{ $no_transaction }}"
+                                        id="example-number-input" name="no_transaction" readonly>
                                 </span>
                             </div>
                         </div>
@@ -35,7 +35,15 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <h6 class="col-5">Sisa Saldo</h6>
+                            <h6 class="col-5">Saldo Santri</h6>
+                            <div class="col">
+                                <span class="selectedSantri">
+                                    {{ $saldo }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <h6 class="col-5">Total Price</h6>
                             <div class="col">
                                 <span class="selectedSantri">
                                     10000

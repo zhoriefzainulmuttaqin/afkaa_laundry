@@ -10,7 +10,7 @@
                         <div class="row mb-3">
                             <h6 class="col-5">Date</h6>
                             <div class="col">
-                                <span class="selectedSantri">
+                                <span class="date">
                                     <input class="form-control" type="date" value="0" id="example-number-input"
                                         name="qty" min="0">
                                 </span>
@@ -19,7 +19,7 @@
                         <div class="row mb-3">
                             <h6 class="col-5">No Transaction</h6>
                             <div class="col">
-                                <span class="selectedSantri">
+                                <span class="noTransaction">
                                     <input class="form-control" type="number" value="0" id="example-number-input"
                                         name="qty" min="0">
                                 </span>
@@ -37,16 +37,16 @@
                         <div class="row mb-3">
                             <h6 class="col-5">Total Cash</h6>
                             <div class="col">
-                                <span class="selectedSantri">
+                                <span class="totalCash">
                                     <input class="form-control" type="number" value="0" id="example-number-input"
                                         name="qty" min="0">
                                 </span>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <h6 class="col-5">Grand Total</h6>
+                            <h6 class="col-5">Total Price</h6>
                             <div class="col">
-                                <span class="selectedSantri">
+                                <span class="totalPrice">
                                     10000
                                 </span>
                             </div>
@@ -54,7 +54,7 @@
                         <div class="row mb-3">
                             <h6 class="col-5">Change</h6>
                             <div class="col">
-                                <span class="selectedSantri">
+                                <span class="change">
                                     10000
                                 </span>
                             </div>
