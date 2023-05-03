@@ -18,7 +18,7 @@ class CartController extends Controller
 
         $items = Cart::where('id_item', '!=', 6)->get();
         $transaction = Transaction::all();
-        $santri = Santri::where('id_santri', $id)->first();
+        $santri = Santri::first($id);
 
         $kgCount = Cart::where('id_item', 6)->sum('qty');
         $kgTotalPrice = $kgCount * 4500;
@@ -29,20 +29,13 @@ class CartController extends Controller
         $deliveryPayment = 8000;
         $total = $allPrice + $deliveryPayment;
 
-        if ($santri) {
-            $tabungan = Callback::where([
-                ['id_santri', '=', $santri->id_santri],
-                ['kode_jenis_transaksi', '=', 'KPT'],
-                ['status', '=', '00'],
-            ])->sum('nominal');
-
-            $penarikan = Penarikan::where('id_santri', $santri->id_santri)->sum('jml_penarikan');
-            $saldo = $tabungan - $penarikan;
-        } else {
-            $tabungan = 0;
-            $penarikan = 0;
-            $saldo = 0;
-        }
+        $tabungan = Callback::where(
+            ['id_santri', '=', $santri->id_santri],
+            ['kode_jenis_transaksi', '=', 'KPT'],
+            ['status', '=', '00'],
+        )->sum('nominal');
+        $penarikan = Penarikan::where('id_santri', $santri->id_santri)->sum('jml_penarikan');
+        $saldo = $tabungan - $penarikan;
 
         return view('pages.cart', compact('pageName', 'items', 'transaction', 'itemCount', 'totalPrice', 'kgCount', 'kgTotalPrice', 'allPrice', 'deliveryPayment', 'total', 'santri', 'saldo'));
     }
@@ -67,31 +60,31 @@ class CartController extends Controller
     {
     }
 
-    public function cash()
-    {
-        $pageName = "Cart / Cash";
-        $nomor_urut = mt_rand(1, 999999);
-        $no_transaction = str_pad($nomor_urut, 6, "0", STR_PAD_LEFT);
+    // public function cash()
+    // {
+    //     $pageName = "Cart / Cash";
+    //     $nomor_urut = mt_rand(1, 999999);
+    //     $no_transaction = str_pad($nomor_urut, 6, "0", STR_PAD_LEFT);
 
-        return view('pages.cash', compact('pageName', 'no_transaction'));
-    }
+    //     return view('pages.cash', compact('pageName', 'no_transaction'));
+    // }
 
-    public function transfer($id)
-    {
-        $pageName = "Cart / Cash";
-        $nomor_urut = mt_rand(1, 999999);
-        $no_transaction = str_pad($nomor_urut, 6, "0", STR_PAD_LEFT);
-        $santri = Santri::where('id_santri', $id)->first();
-        $tabungan = Callback::where([
-            ['id_santri', '=', $santri->id_santri],
-            ['kode_jenis_transaksi', '=', 'KPT'],
-            ['status', '=', '00'],
-        ])->sum('nominal');
-        $penarikan = Penarikan::where('id_santri', $santri->id_santri)->sum('jml_penarikan');
-        $saldo = $tabungan - $penarikan;
+    // public function transfer()
+    // {
+    //     $pageName = "Cart / Cash";
+    //     $nomor_urut = mt_rand(1, 999999);
+    //     $no_transaction = str_pad($nomor_urut, 6, "0", STR_PAD_LEFT);
+    //     $santri = Santri::where('id_santri')->first();
+    //     $tabungan = Callback::where([
+    //         ['id_santri', '=', $santri->id_santri],
+    //         ['kode_jenis_transaksi', '=', 'KPT'],
+    //         ['status', '=', '00'],
+    //     ])->sum('nominal');
+    //     $penarikan = Penarikan::where('id_santri', $santri->id_santri)->sum('jml_penarikan');
+    //     $saldo = $tabungan - $penarikan;
 
-        return view('pages.transfer', compact('pageName', 'no_transaction', 'saldo'));
-    }
+    //     return view('pages.transfer', compact('pageName', 'no_transaction', 'saldo'));
+    // }
 
 
 

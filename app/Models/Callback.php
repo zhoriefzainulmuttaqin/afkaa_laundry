@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Callback extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'id_callback';
     protected $table = "callback";
+    protected $primaryKey = 'id_callback';
 
     protected $fillable = [
         "orderId",

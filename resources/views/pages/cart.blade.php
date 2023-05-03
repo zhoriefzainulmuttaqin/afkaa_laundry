@@ -124,16 +124,22 @@
                                 <div class="dropdown ms-4">
                                     <button class="btn bg-outline-dark dropdown-toggle" type="button"
                                         id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{ $item->nama_santri }}
+                                        santri
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                         style="max-height: 200px; overflow-y: auto;" id="santriDropdown">
-                                        @foreach ($santri as $item)
+                                        @if ($santri)
+                                            @foreach ($santri as $item)
+                                                <li>
+                                                    <a class="dropdown-item" href="#"
+                                                        onclick="selectSantri('{{ $item->nama_santri }}')">{{ $item->nama_santri }}</a>
+                                                </li>
+                                            @endforeach
+                                        @else
                                             <li>
-                                                <a class="dropdown-item" href="#"
-                                                    onclick="selectSantri('{{ $item->nama_santri }}')">{{ $item->nama_santri }}</a>
+                                                <a class="dropdown-item" href="#">not found</a>
                                             </li>
-                                        @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                                 <div>
@@ -157,13 +163,9 @@
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h6>Select Payment</h6>
                                 <div class="author align-items-center">
-                                    <a href="cart/transfer/" class="w-50 me-2">
-                                        <button type="button" class="btn btn-dark w-100">Transfer</button>
-                                    </a>
-                                    <a href="cart/cash" class="w-50">
-                                        <button type="button" class="btn btn-dark w-100">Cash</button>
+                                    <a href="cart/transfer/" class="w-100 me-2">
+                                        <button type="button" class="btn btn-dark w-100">Pay</button>
                                     </a>
                                 </div>
                             </div>
@@ -179,15 +181,9 @@
     function selectSantri(nama_santri) {
         document.getElementById('selectedSantri').innerHTML = nama_santri;
         var id_santri = getIdSantriByName(nama_santri);
-
-        $.ajax({
-            type: 'GET',
-            url: '/saldo-tabungan/' + id_santri,
-            success: function(response) {
-                document.getElementById('selectedSaldoSantri').innerHTML = 'Saldo Total: ' + response.saldo;
-            }
-        });
     }
+
+
 
     function getIdSantriByName(nama_santri) {
         var options = document.getElementById('santriDropdown').options;

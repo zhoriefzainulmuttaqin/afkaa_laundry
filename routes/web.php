@@ -34,7 +34,7 @@ Route::post('/transaction', [TransactionController::class, 'edit']);
 Route::get('/transaction/{id}', [TransactionController::class, 'delete']);
 
 // Cart
-Route::get('/cart/{id}', [CartController::class, 'index']);
+Route::get('/cart', [CartController::class, 'index']);
 Route::get('/cart/cash', [CartController::class, 'cash']);
 Route::get('/cart/transfer', [CartController::class, 'transfer']);
 Route::get('/delete-cart/{id_cart}', [CartController::class, 'deleteCart'])->name('delete-cart');
