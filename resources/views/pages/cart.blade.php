@@ -52,6 +52,8 @@
             <div class="card card-frame">
                 <div class="card-body">
                     <h2>Detail Cart Transaction</h2>
+                    {{-- <form method="POST" action="/history">
+                        @csrf --}}
                     <div class="col-md-12">
                         <div class="card mt-3">
                             <h5 class="mt-3 ms-4">Kilogram</h5>
@@ -164,13 +166,17 @@
                             </div>
                             <div class="card-body">
                                 <div class="author align-items-center">
-                                    <a href="cart/transfer/" class="w-100 me-2">
-                                        <button type="button" class="btn btn-dark w-100">Pay</button>
-                                    </a>
+                                    <form method="POST" action="/history">
+                                        @csrf
+                                        <input type="hidden" name="no_order" value="{{ $newOrderNumber }}">
+                                        <input type="hidden" name="order_date" value="{{ date('Y-m-d') }}">
+                                        <button type="submit" class="btn btn-dark w-100">Pay</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {{-- </form> --}}
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,10 @@ Route::get('/transaction/{id}', [TransactionController::class, 'delete']);
 
 // Cart
 Route::get('/cart', [CartController::class, 'index']);
-Route::get('/cart/cash', [CartController::class, 'cash']);
+Route::post('/history', [CartController::class, 'store']);
 Route::get('/cart/transfer', [CartController::class, 'transfer']);
 Route::get('/delete-cart/{id_cart}', [CartController::class, 'deleteCart'])->name('delete-cart');
+
+// History
+Route::get('/history', [HistoryController::class, 'index']);
+// Route::post('/history', [HistoryController::class, 'store']);
