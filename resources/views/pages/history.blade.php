@@ -21,9 +21,12 @@
                 @csrf
                 <div class="d-flex">
                     <h4 class="mb-3">History</h4>
-                    <a href="" class="ms-auto">
-                        <h5 style="color: #E44331">Print</h5>
-                    </a>
+                    <form action="/history/printPDF" method="POST" target="_blank">
+                        @csrf
+                        <a href="/history/printPDF" class="ms-auto">
+                            <h5 style="color: #E44331">Print</h5>
+                        </a>
+                    </form>
 
                 </div>
                 @foreach ($order as $item)

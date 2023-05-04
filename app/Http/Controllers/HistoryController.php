@@ -28,4 +28,11 @@ class HistoryController extends Controller
             return redirect('history');
         }
     }
+
+    public function print(Request $request)
+    {
+        $history = Order::all();
+
+        return view('export.pdf_order', compact('history'));
+    }
 }

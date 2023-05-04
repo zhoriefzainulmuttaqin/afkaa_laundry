@@ -42,4 +42,5 @@ Route::get('/delete-cart/{id_cart}', [CartController::class, 'deleteCart'])->nam
 
 // History
 Route::get('/history', [HistoryController::class, 'index']);
+Route::get('/history/printPDF', [HistoryController::class, 'print']);
 // Route::post('/history', [HistoryController::class, 'store']);
