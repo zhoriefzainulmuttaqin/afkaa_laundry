@@ -26,21 +26,23 @@ Route::get('/register', [LoginController::class, 'register']);
 
 // Pages Routes
 Route::middleware('auth')->group(function () {
+    // Home
+    Route::get('/', [TransactionController::class, 'index']);
+    Route::get('/transaction', [TransactionController::class, 'index']);
+    Route::post('/add-to-cart', [TransactionController::class, 'store'])->name('add-to-cart');
+    Route::post('/transaction', [TransactionController::class, 'edit']);
+    Route::get('/transaction/{id}', [TransactionController::class, 'delete']);
+
+    // Cart
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::post('/history', [CartController::class, 'store']);
+    Route::get('/cart/transfer', [CartController::class, 'transfer']);
+    Route::get('/delete-cart/{id_cart}', [CartController::class, 'deleteCart'])->name('delete-cart');
+
+
+
+    // History
+    Route::get('/history', [HistoryController::class, 'index']);
+    Route::get('/history/printPDF', [HistoryController::class, 'print']);
+    // Route::post('/history', [HistoryController::class, 'store']);
 });
-// Home
-Route::get('/', [TransactionController::class, 'index']);
-Route::get('/transaction', [TransactionController::class, 'index']);
-Route::post('/add-to-cart', [TransactionController::class, 'store'])->name('add-to-cart');
-Route::post('/transaction', [TransactionController::class, 'edit']);
-Route::get('/transaction/{id}', [TransactionController::class, 'delete']);
-
-// Cart
-Route::get('/cart', [CartController::class, 'index']);
-Route::post('/history', [CartController::class, 'store']);
-Route::get('/cart/transfer', [CartController::class, 'transfer']);
-Route::get('/delete-cart/{id_cart}', [CartController::class, 'deleteCart'])->name('delete-cart');
-
-// History
-Route::get('/history', [HistoryController::class, 'index']);
-Route::get('/history/printPDF', [HistoryController::class, 'print']);
-// Route::post('/history', [HistoryController::class, 'store']);

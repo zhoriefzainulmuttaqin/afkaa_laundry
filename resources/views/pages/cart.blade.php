@@ -146,6 +146,7 @@
                                 </div>
                                 <div>
                                     <span class="ms-4 me-4" id="selectedSantri">
+                                        <input type="hidden" name="nama_santri">
                                         Santri Selected
                                     </span>
                                 </div>
@@ -168,7 +169,7 @@
                                 <div class="author align-items-center">
                                     <form method="POST" action="/history">
                                         @csrf
-                                        <input type="hidden" name="no_order" value="{{ $newOrderNumber }}">
+                                        <input type="hidden" name="no_order">
                                         <input type="hidden" name="order_date" value="{{ date('Y-m-d') }}">
                                         <button type="submit" class="btn btn-dark w-100">Pay</button>
                                     </form>

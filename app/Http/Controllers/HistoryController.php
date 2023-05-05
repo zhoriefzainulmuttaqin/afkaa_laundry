@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Santri;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
@@ -10,9 +11,7 @@ class HistoryController extends Controller
     public function index()
     {
         $pageName = "History Transaction";
-        $order = Order::all();
-
-
+        $order =  Order::simplePaginate(5); // 5 adalah jumlah item per halaman
 
 
         return view('pages.history', compact('pageName', 'order'));

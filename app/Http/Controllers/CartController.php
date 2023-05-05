@@ -56,7 +56,6 @@ class CartController extends Controller
         return view('pages.cart', ['saldo' => $saldo]);
     }
 
-
     public function store(Request $request)
     {
         $lastOrder = Order::orderBy('no_order', 'desc')->first(); // Ambil nomor order terakhir
@@ -70,10 +69,14 @@ class CartController extends Controller
         $history->order_date = date('Y-m-d'); // Set nilai order_date dengan tanggal hari ini
         $history->save();
 
+        // Hapus semua data pada tabel cart
+        Cart::truncate();
+
         if ($history) {
-            return view('pages.history')->with('newOrderNumber', $newOrderNumber);
+            return redirect('history');
         }
     }
+
 
 
     public function deleteCart($id_cart)
