@@ -18,16 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Login Routes
+Route::get('/', [LoginController::class, 'showLoginForm']);
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/register', [LoginController::class, 'register']);
+// Route::get('/register', [LoginController::class, 'register']);
 
 
 // Pages Routes
 Route::middleware('auth')->group(function () {
     // Home
-    Route::get('/', [TransactionController::class, 'index']);
+    // Route::get('/', [TransactionController::class, 'index']);
     Route::get('/transaction', [TransactionController::class, 'index']);
     Route::post('/add-to-cart', [TransactionController::class, 'store'])->name('add-to-cart');
     Route::post('/transaction', [TransactionController::class, 'edit']);

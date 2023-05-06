@@ -20,6 +20,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $table = 'laundry_user';
+    protected $primaryKey = 'id_staff';
+
 
     protected $fillable = [
         'name',

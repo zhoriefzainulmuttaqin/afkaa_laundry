@@ -31,8 +31,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
                         <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-                        <p class="text-lead text-white">Use these convenient forms to access our laundry services or
-                            create a new account easily and for free.</p>
+                        <p class="text-lead text-white">Use these convenient forms to access our laundry services for
+                            free.</p>
                     </div>
                 </div>
             </div>
@@ -41,21 +41,8 @@
             <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
                 <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
                     <div class="card z-index-0">
-                        <div class="row px-xl-5 px-sm-4 px-3 pt-4">
-                            <div class=" ms-auto px-1">
-                                <a class="btn btn-outline-light w-100" href="javascript:;">
-                                    <span style="color: #474D67;">Log in with Google</span>
-                                </a>
-                            </div>
-                            <div class="mt-2 position-relative text-center">
-                                <p
-                                    class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
-                                    or
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
+                        <div class="card-body mt-4">
+                            <form action="login" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <input type="text" class="form-control" placeholder="username"
@@ -73,8 +60,6 @@
                                 <div class="text-center">
                                     <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Log in</button>
                                 </div>
-                                <p class="text-sm mt-3 mb-0">Don't have an account? <a href="/register"
-                                        class="text-dark font-weight-bolder">Register</a></p>
                                 <hr class="my-4" />
                                 @if ($message = Session::get('error'))
                                     <div class="alert alert-danger" role="alert">
